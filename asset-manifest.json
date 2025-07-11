@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/www.jarrentobias.com/static/css/main.cb9496fa.css",
-    "main.js": "/www.jarrentobias.com/static/js/main.f819f13a.js",
-    "static/js/453.ab8f19a9.chunk.js": "/www.jarrentobias.com/static/js/453.ab8f19a9.chunk.js",
-    "index.html": "/www.jarrentobias.com/index.html",
-    "main.cb9496fa.css.map": "/www.jarrentobias.com/static/css/main.cb9496fa.css.map",
-    "main.f819f13a.js.map": "/www.jarrentobias.com/static/js/main.f819f13a.js.map",
-    "453.ab8f19a9.chunk.js.map": "/www.jarrentobias.com/static/js/453.ab8f19a9.chunk.js.map"
+    "main.css": "/static/css/main.cb9496fa.css",
+    "main.js": "/static/js/main.23c8e782.js",
+    "static/js/453.ab8f19a9.chunk.js": "/static/js/453.ab8f19a9.chunk.js",
+    "index.html": "/index.html",
+    "main.cb9496fa.css.map": "/static/css/main.cb9496fa.css.map",
+    "main.23c8e782.js.map": "/static/js/main.23c8e782.js.map",
+    "453.ab8f19a9.chunk.js.map": "/static/js/453.ab8f19a9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cb9496fa.css",
-    "static/js/main.f819f13a.js"
+    "static/js/main.23c8e782.js"
   ]
 }
