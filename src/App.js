@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const createShockwave = (e) => {
@@ -37,6 +38,17 @@ function App() {
       setDarkMode(JSON.parse(savedMode));
     }
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (isMobileMenuOpen && !e.target.closest('.nav-container')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
@@ -79,13 +91,14 @@ function App() {
       <nav className="navbar">
         <div className="nav-container">
           <h1 className="nav-logo">Jarren Tobias</h1>
-          <ul className="nav-menu">
+          <ul className={`nav-menu ${isMobileMenuOpen ? 'nav-menu-open' : ''}`}>
             <li>
               <a
                 href="#home"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection("home");
+                  setIsMobileMenuOpen(false);
                 }}
               >
                 Home
@@ -97,6 +110,7 @@ function App() {
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection("about");
+                  setIsMobileMenuOpen(false);
                 }}
               >
                 About
@@ -108,6 +122,7 @@ function App() {
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection("projects");
+                  setIsMobileMenuOpen(false);
                 }}
               >
                 Projects
@@ -119,6 +134,7 @@ function App() {
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection("skills");
+                  setIsMobileMenuOpen(false);
                 }}
               >
                 Skills
@@ -130,19 +146,33 @@ function App() {
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection("contact");
+                  setIsMobileMenuOpen(false);
                 }}
               >
                 Contact
               </a>
             </li>
           </ul>
-          <button
-            className="theme-toggle"
-            onClick={() => setDarkMode(!darkMode)}
-            aria-label="Toggle dark mode"
-          >
-            {darkMode ? "☀️" : "🌙"}
-          </button>
+          <div className="nav-actions">
+            <button
+              className="mobile-menu-toggle"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+            >
+              <span className={`hamburger ${isMobileMenuOpen ? 'hamburger-open' : ''}`}>
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+            <button
+              className="theme-toggle"
+              onClick={() => setDarkMode(!darkMode)}
+              aria-label="Toggle dark mode"
+            >
+              {darkMode ? "☀️" : "🌙"}
+            </button>
+          </div>
         </div>
       </nav>
 
