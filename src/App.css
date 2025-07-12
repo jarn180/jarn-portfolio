@@ -462,9 +462,113 @@ body {
   text-decoration: underline;
 }
 
-.skills {
+.experience {
   padding: 100px 0;
   background: #f8fafc;
+}
+
+.experience h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #1e293b;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.experience-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  position: relative;
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(34, 197, 94, 0.05), rgba(59, 130, 246, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.experience-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.experience-card:hover::before {
+  opacity: 1;
+}
+
+.experience-header {
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.experience-header h3 {
+  font-size: 1.3rem;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.experience-company {
+  font-weight: 600;
+  color: #3b82f6;
+  margin-bottom: 0.25rem;
+}
+
+.experience-date {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.experience-content {
+  padding: 1.5rem;
+}
+
+.experience-content p {
+  color: #475569;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.experience-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.experience-skills span {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.experience-skills span:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.skills {
+  padding: 100px 0;
+  background: white;
 }
 
 .skills h2 {
@@ -612,7 +716,8 @@ body {
     gap: 3rem;
   }
   
-  .projects-grid {
+  .projects-grid,
+  .experience-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
   
@@ -711,11 +816,11 @@ body {
     text-align: center;
   }
   
-  .about, .projects, .skills, .contact {
+  .about, .projects, .experience, .skills, .contact {
     padding: 60px 0;
   }
   
-  .about h2, .projects h2, .skills h2, .contact h2 {
+  .about h2, .projects h2, .experience h2, .skills h2, .contact h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
   }
@@ -740,7 +845,8 @@ body {
     font-size: 1.5rem;
   }
   
-  .projects-grid {
+  .projects-grid,
+  .experience-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
@@ -894,6 +1000,7 @@ body {
 
 .dark-mode .about h2,
 .dark-mode .projects h2,
+.dark-mode .experience h2,
 .dark-mode .skills h2,
 .dark-mode .contact h2 {
   color: #f1f5f9;
@@ -901,6 +1008,10 @@ body {
 
 .dark-mode .projects {
   background: #0f172a;
+}
+
+.dark-mode .experience {
+  background: #1e293b;
 }
 
 .dark-mode .skills {
@@ -912,6 +1023,7 @@ body {
 }
 
 .dark-mode .project-card,
+.dark-mode .experience-card,
 .dark-mode .skill-category,
 .dark-mode .stat {
   background: #334155;
@@ -919,15 +1031,25 @@ body {
 }
 
 .dark-mode .project-content h3,
+.dark-mode .experience-header h3,
 .dark-mode .skill-category h3,
 .dark-mode .contact-item h4 {
   color: #f1f5f9;
 }
 
 .dark-mode .project-content p,
+.dark-mode .experience-content p,
 .dark-mode .about-text p,
 .dark-mode .contact > p,
 .dark-mode .contact-item p {
+  color: #94a3b8;
+}
+
+.dark-mode .experience-company {
+  color: #60a5fa;
+}
+
+.dark-mode .experience-date {
   color: #94a3b8;
 }
 

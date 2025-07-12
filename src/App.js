@@ -41,13 +41,13 @@ function App() {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (isMobileMenuOpen && !e.target.closest('.nav-container')) {
+      if (isMobileMenuOpen && !e.target.closest(".nav-container")) {
         setIsMobileMenuOpen(false);
       }
     };
 
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
@@ -91,7 +91,7 @@ function App() {
       <nav className="navbar">
         <div className="nav-container">
           <h1 className="nav-logo">Jarren Tobias</h1>
-          <ul className={`nav-menu ${isMobileMenuOpen ? 'nav-menu-open' : ''}`}>
+          <ul className={`nav-menu ${isMobileMenuOpen ? "nav-menu-open" : ""}`}>
             <li>
               <a
                 href="#home"
@@ -114,6 +114,18 @@ function App() {
                 }}
               >
                 About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#experience"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("experience");
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Experience
               </a>
             </li>
             <li>
@@ -159,7 +171,11 @@ function App() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle mobile menu"
             >
-              <span className={`hamburger ${isMobileMenuOpen ? 'hamburger-open' : ''}`}>
+              <span
+                className={`hamburger ${
+                  isMobileMenuOpen ? "hamburger-open" : ""
+                }`}
+              >
                 <span></span>
                 <span></span>
                 <span></span>
@@ -186,11 +202,11 @@ function App() {
           </p>
           <div className="hero-buttons">
             <a
-              href="#projects"
+              href="#experience"
               className="btn-primary"
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection("projects");
+                scrollToSection("experience");
               }}
             >
               View My Work
@@ -245,6 +261,86 @@ function App() {
                 <p>Technologies</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" className="experience">
+        <div className="container">
+          <h2>Work Experience</h2>
+          <div className="experience-grid">
+            <div className="experience-card">
+              <div className="experience-header">
+                <h3>Software Engineer Intern</h3>
+                <div className="experience-company">Paycom • Dallas, TX</div>
+                <div className="experience-date">Summer 2025 (Current)</div>
+              </div>
+              <div className="experience-content">
+                <p>
+                  Developing a full-stack Learning Management System (LMS) with
+                  gamification features to enhance employee training engagement.
+                  Building interactive components, progress tracking systems,
+                  and achievement mechanics using modern web technologies.
+                </p>
+                <div className="experience-skills">
+                  <span>Full-Stack Development</span>
+                  <span>LMS Development</span>
+                  <span>Gamification</span>
+                  <span>UI/UX Design</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="experience-card">
+              <div className="experience-header">
+                <h3>Software Engineer Intern</h3>
+                <div className="experience-company">Paycom • Dallas, TX</div>
+                <div className="experience-date">May 2024 – Aug. 2024</div>
+              </div>
+              <div className="experience-content">
+                <p>
+                  Developed a candidate outreach platform enabling recruiting
+                  teams to re-engage with previous applicants for future
+                  opportunities. Enabled the tracking of analytics of emails
+                  sent through invisible pixels and tokenized tracking links.
+                  Earned first place in a company-wide hackathon, developing and
+                  presenting a robust frontend infrastructure on a project
+                  placement application.
+                </p>
+                <div className="experience-skills">
+                  <span>Frontend Development</span>
+                  <span>Email Analytics</span>
+                  <span>Hackathon Winner</span>
+                  <span>Recruiting Platform</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="experience-card">
+              <div className="experience-header">
+                <h3>Certified Clinical Medical Assistant</h3>
+                <div className="experience-company">
+                  Qurom Partners (Formerly Cardium, LLC) • The Woodlands, TX
+                </div>
+                <div className="experience-date">Aug. 2021 – May 2022</div>
+              </div>
+              <div className="experience-content">
+                <p>
+                  Managed the care of 100+ patients with remote patient
+                  monitoring software. Collaborated with other interns to
+                  monitor vitals of numerous hospitals in entire Greater Houston
+                  area. Led the management and syncing of 4G cellular health
+                  equipment for patient use.
+                </p>
+                <div className="experience-skills">
+                  <span>Remote Patient Monitoring</span>
+                  <span>Healthcare Technology</span>
+                  <span>Team Leadership</span>
+                  <span>Medical Equipment</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
